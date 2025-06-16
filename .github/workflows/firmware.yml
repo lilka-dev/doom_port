@@ -50,3 +50,10 @@ jobs:
         with:
           name: doom-firmware
           path: ./doom.bin
+
+      - name: Upload doom.bin to Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ./doom.bin
+          
